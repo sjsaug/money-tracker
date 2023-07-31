@@ -49,7 +49,7 @@ function App() {
 
   return (
     <main>
-      <h1>{balance}<span>{fraction}</span>$</h1>
+      <h1>${balance}<span>{fraction}</span></h1>
       <form onSubmit={addNewTransaction}>
         <div className='basic'>
           <input type = "name" 
