@@ -1,13 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
+import { set } from 'mongoose';
 
 function App() {
   const [name,setName] = useState('');
   const [datetime,setDatetime] = useState('');
   const [description,setDescription] = useState('');
-  function addNewTransaction(ev){
-    ev.preventDefault();
+  const [transactions, setTransactions] = useState([]);
+
+  useEffect(() => {
+    getTransactions().then(setTransactions);
+  }, []);
+  async function getTransactions(){
     const url = process.env.REACT_APP_API_URL+'/transaction';
+    const response = await fetch(url);
+    return await response.json();
+  }
+  function addNewTransaction(ev){
+    const url = process.env.REACT_APP_API_URL+'/transaction';
+    ev.preventDefault();
     const price = name.split(' ')[0];
     fetch(url, {
       method: 'POST',
@@ -51,36 +62,18 @@ function App() {
         </button>
       </form>
       <div className='transactions'>
+        {transactions.length > 0 && transactions.map(transaction => (
         <div className='transaction'>
           <div className='left'>
-            <div className='name'>New Monitor</div>
-            <div className='description'>Upgraded from 60hz to 280hz</div>
+            <div className='name'>{transaction.name}</div>
+            <div className='description'>{transaction.description}</div>
           </div>
           <div className='right'>
-            <div className='price negative'>-185$</div>
+            <div className={'price ' + (transaction.price<0?"negative":"positive")}>{transaction.price}</div>
             <div className='datetime'>2022-12-18</div>
           </div>
         </div>
-      <div className='transaction'>
-          <div className='left'>
-            <div className='name'>Sold old things</div>
-            <div className='description'>Got rid of some old posessions of mine</div>
-          </div>
-          <div className='right'>
-            <div className='price positive'>+300$</div>
-            <div className='datetime'>2022-12-18</div>
-          </div>
-        </div>
-      <div className='transaction'>
-          <div className='left'>
-            <div className='name'>MacBook</div>
-            <div className='description'>New laptop for school</div>
-          </div>
-          <div className='right'>
-            <div className='price negative'>-2800$</div>
-            <div className='datetime'>2022-12-18</div>
-          </div>
-        </div>
+        ))}
       </div>
     </main>
   );
