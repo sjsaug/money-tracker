@@ -34,6 +34,7 @@ function App() {
         setName('');
         setDatetime('');
         setDescription('');
+        setTransactions([...transactions, json]);
         console.log("result", json);
       });
     });
@@ -80,7 +81,7 @@ function App() {
           </div>
           <div className='right'>
             <div className={'price ' + (transaction.price<0?"negative":"positive")}>{transaction.price}</div>
-            <div className='datetime'>2022-12-18</div>
+            <div className='datetime'>{transaction.datetime.split("T")[0]}</div>
           </div>
         </div>
         ))}
