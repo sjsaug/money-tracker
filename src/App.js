@@ -57,16 +57,17 @@ function App() {
           <input type = "name" 
                 value={name}
                 onChange = {ev => setName(ev.target.value)}
-                placeholder={"+200 new monitor"}/>
-          <input value = {datetime} 
-                onChange={ev => setDatetime(ev.target.value)} 
-                type = "datetime-local"/>
+                placeholder={"+-$ Reason"}/>
+          <input type = "datetime-local" 
+                value = {datetime} 
+                onChange={ev => setDatetime(ev.target.value)}
+                />
         </div>
         <div className="description">
           <input type = "name" 
           value={description}
           onChange = {ev => setDescription(ev.target.value)}
-          placeholder={"description"}/>
+          placeholder={"Description"}/>
         </div>
         <button type="submit">
           Add new transaction
