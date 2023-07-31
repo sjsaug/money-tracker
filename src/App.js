@@ -45,11 +45,12 @@ function App() {
 
   //becomes str
   balance = balance.toFixed(2);
-  const fraction = balance.split('.')[1];
+  const cents = balance.split('.')[1];
+  balance = balance.split('.')[0];
 
   return (
     <main>
-      <h1>${balance}<span>{fraction}</span></h1>
+      <h1>${balance}<span>{cents}</span></h1>
       <form onSubmit={addNewTransaction}>
         <div className='basic'>
           <input type = "name" 
