@@ -12,7 +12,7 @@ function App() {
     getTransactions().then(setTransactions);
   }, []);
   async function getTransactions(){
-    const url = process.env.REACT_APP_API_URL+'/transaction';
+    const url = process.env.REACT_APP_API_URL+'/transactions';
     const response = await fetch(url);
     return await response.json();
   }
