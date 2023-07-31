@@ -18,8 +18,14 @@ function App() {
       </form>
       <div className='transactions'>
         <div className='transaction'>
-          <div className='left'></div>
-          <div className='right'></div>
+          <div className='left'>
+            <div className='name'>New Monitor</div>
+            <div className='description'>Upgraded from 60hz to 280hz</div>
+          </div>
+          <div className='right'>
+            <div className='price'>185$</div>
+            <div className='datetime'>2022-12-18</div>
+          </div>
         </div>
       </div>
     </main>
