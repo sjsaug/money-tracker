@@ -3,18 +3,29 @@ import './App.css';
 
 function App() {
   const [name,setName] = useState('');
+  const [datetime,setDatetime] = useState('');
+  const [description,setDescription] = useState('');
+  function addNewTransaction(){
+    console.log(name,datetime,description);
+  }
   return (
     <main>
       <h1>$400<span>.00</span></h1>
-      <form>
+      <form onSubmit={addNewTransaction}>
         <div className='basic'>
-          <input type = "name" value={name}
-          onChange = {ev => setName(ev.target.value)}
-          placeholder={"+200 new monitor"}/>
-          <input type = "datetime-local"/>
+          <input type = "name" 
+                value={name}
+                onChange = {ev => setName(ev.target.value)}
+                placeholder={"+200 new monitor"}/>
+          <input value = {datetime} 
+                onChange={ev => setDatetime(ev.target.value)} 
+                type = "datetime-local"/>
         </div>
         <div className="description">
-          <input type = "name" placeholder={"description"}/>
+          <input type = "name" 
+          value={description}
+          onChange = {ev => setDescription(ev.target.value)}
+          placeholder={"description"}/>
         </div>
         <button type="submit">
           Add new transaction
