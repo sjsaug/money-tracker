@@ -5,8 +5,11 @@ function App() {
   const [name,setName] = useState('');
   const [datetime,setDatetime] = useState('');
   const [description,setDescription] = useState('');
-  function addNewTransaction(){
-    console.log(name,datetime,description);
+  function addNewTransaction(ev){
+    ev.preventDefault();
+    const url = process.env.REACT_APP_API_URL+'/transaction';
+    console.log(url);
+    /*fetch(url)*/
   }
   return (
     <main>
