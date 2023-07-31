@@ -9,7 +9,7 @@ app.get("/api/test", (req, res) => {
 });
 
 app.post("/api/transaction", (req, res) => {
-    const {name, datetime, description} = res.body;
+    const {name, datetime, description} = req.body;
     
     res.json(req.body);
 });

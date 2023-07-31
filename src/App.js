@@ -11,7 +11,7 @@ function App() {
     fetch(url, {
       method: 'POST',
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify({name,datetime, description})
+      body: JSON.stringify({name, datetime, description})
     }).then(response => {
       response.json().then(json => {
         console.log("result", json);
