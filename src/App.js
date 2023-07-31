@@ -23,27 +23,27 @@ function App() {
             <div className='description'>Upgraded from 60hz to 280hz</div>
           </div>
           <div className='right'>
-            <div className='price'>185$</div>
+            <div className='price negative'>-185$</div>
             <div className='datetime'>2022-12-18</div>
           </div>
         </div>
       <div className='transaction'>
           <div className='left'>
-            <div className='name'>New Monitor</div>
-            <div className='description'>Upgraded from 60hz to 280hz</div>
+            <div className='name'>Sold old things</div>
+            <div className='description'>Got rid of some old posessions of mine</div>
           </div>
           <div className='right'>
-            <div className='price'>185$</div>
+            <div className='price positive'>+300$</div>
             <div className='datetime'>2022-12-18</div>
           </div>
         </div>
       <div className='transaction'>
           <div className='left'>
-            <div className='name'>New Monitor</div>
-            <div className='description'>Upgraded from 60hz to 280hz</div>
+            <div className='name'>MacBook</div>
+            <div className='description'>New laptop for school</div>
           </div>
           <div className='right'>
-            <div className='price'>185$</div>
+            <div className='price negative'>-2800$</div>
             <div className='datetime'>2022-12-18</div>
           </div>
         </div>
